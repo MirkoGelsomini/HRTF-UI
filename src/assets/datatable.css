@@ -1,0 +1,15 @@
+.v-table {
+  border-radius: 14px !important;
+  background-color: 
+    rgba(var(--v-theme-surface), 
+    var(--v-surface-alpha)) 
+    !important;
+  font-size: 16px !important;
+}
+
+.v-data-table__tr:hover {
+  background-color: 
+    rgba(var(--v-theme-theme-bg), 
+    var(--v-theme-bg-alpha)) 
+    !important;
+}
