@@ -133,7 +133,7 @@ const isOverlayActive = computed(() => {
 }
 
 /* Consolidated Minority Report Styles for Expanded Drawer */
-.theme-minority .custom-drawer.is-expanded-overlay {
+.custom-drawer.is-expanded-overlay {
   border-color: rgba(255, 255, 255, 0.2) !important;
   background-color: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(10px);

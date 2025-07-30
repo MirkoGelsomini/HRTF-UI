@@ -1,4 +1,8 @@
 import './assets/main.css';
+import './assets/themes/foundation.css';
+import './assets/themes/minority.css';
+import './assets/themes/westworld.css';
+import './assets/themes/original.css';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
@@ -13,7 +17,7 @@ import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import '@mdi/font/css/materialdesignicons.css';
 // Import all themes
-import { originalLight, originalDark, minorityReport, westworld } from './styles/vuetifyStyle';
+import { originalLight, originalDark, minorityReport, westworld, foundation } from './styles/vuetifyStyle';
 
 const app = createApp(App);
 
@@ -24,12 +28,13 @@ const vuetify = createVuetify({
   components,
   directives,
   theme: {
-    defaultTheme: 'originalLight', 
+    defaultTheme: 'foundation', 
     themes: {
       originalLight,
       originalDark,
       minorityReport,
-      westworld, // Register the new theme
+      westworld,
+      foundation,
     },
   },
   icons: {

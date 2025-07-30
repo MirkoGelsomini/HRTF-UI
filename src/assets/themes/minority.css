@@ -1,0 +1,41 @@
+/* === MINORITY REPORT THEME === */
+
+/* --- Theme-specific Fonts --- */
+body.theme-minority {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* --- Animated Backgrounds --- */
+body.bg-animated-minority {
+    background: linear-gradient(135deg, #0d1a26, #1a3a59, #336699);
+    background-size: 400% 400%;
+    animation: waveGradient 10s ease infinite;
+}
+
+/* --- Vibility for Animated Backgrounds --- */
+body.bg-animated-minority .v-application,
+body.bg-animated-minority .v-main,
+body.bg-animated-minority .app-container-card {
+  background: transparent !important;
+}
+
+/* --- Consolidated Minority Report Styles --- */
+body.theme-minority .v-card:not(.app-container-card),
+body.theme-minority .v-navigation-drawer,
+body.theme-minority .v-dialog,
+body.theme-minority .v-overlay__content {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(50px) !important;
+}
+
+body.theme-minority .v-list {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+@keyframes waveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

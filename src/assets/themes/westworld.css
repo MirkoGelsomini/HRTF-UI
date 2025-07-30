@@ -1,0 +1,36 @@
+/* === WESTWORLD THEME === */
+
+/* --- Theme-specific Fonts --- */
+body.theme-westworld {
+  font-family: 'Roboto Slab', serif;
+}
+
+/* --- Animated Backgrounds --- */
+body.bg-animated-westworld {
+    background: linear-gradient(-45deg, #4d3a2a, #8c6d53, #DAA520, #5A4539);
+    background-size: 400% 400%;
+    animation: heat-shimmer 25s ease infinite;
+}
+
+/* --- Vibility for Animated Backgrounds --- */
+body.bg-animated-westworld .v-application,
+body.bg-animated-westworld .v-main,
+body.bg-animated-westworld .app-container-card {
+  background: transparent !important;
+}
+
+/* --- Westworld specific UI elements (e.g., no blur) --- */
+body.theme-westworld .v-card,
+body.theme-westworld .v-navigation-drawer,
+body.theme-westworld .v-dialog,
+body.theme-westworld .v-overlay__content {
+  backdrop-filter: none; /* No blur for Westworld */
+}
+
+@keyframes heat-shimmer {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}

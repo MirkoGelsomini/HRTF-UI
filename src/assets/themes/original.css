@@ -1,0 +1,22 @@
+/* === ORIGINAL THEME === */
+
+body.bg-animated-original-light {
+}
+
+body.bg-animated-original-dark {
+}
+
+/* --- Vibility for Animated Backgrounds --- */
+body.bg-animated-original-light .v-application,
+body.bg-animated-original-light .v-main,
+body.bg-animated-original-light .app-container-card,
+body.bg-animated-original-dark .v-application,
+body.bg-animated-original-dark .v-main,
+body.bg-animated-original-dark .app-container-card {
+  background: transparent !important;
+}
+
+/* --- Static Fallback for Original Themes --- */
+body.theme-original {
+    background-color: rgb(var(--v-theme-background));
+}

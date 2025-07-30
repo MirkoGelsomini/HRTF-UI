@@ -2,8 +2,8 @@
 @import url('button.css');
 @import url('list.css');
 
-html { 
-  overflow-y: auto !important 
+html {
+  overflow-y: auto !important
 }
 
 body {
@@ -28,74 +28,6 @@ body.bg-none {
 .v-card {
   border-radius: 14px !important;
   border: 1px solid rgb(var(--v-theme-border-color)); /* Default border */
-}
-
-/* --- Animated Backgrounds --- */
-/* (animations are correct) */
-
-/* --- Westworld specific UI elements (e.g., no blur) --- */
-body.theme-westworld .v-card,
-body.theme-westworld .v-navigation-drawer,
-body.theme-westworld .v-dialog,
-body.theme-westworld .v-overlay__content {
-  backdrop-filter: none; /* No blur for Westworld */
-}
-
-
-/* --- Consolidated Minority Report Styles --- */
-
-/* 1. Make ALL main layout layers transparent to create a clear window to the animated body */
-body.theme-minority .v-application,
-body.theme-minority .v-main,
-body.theme-minority .app-container-card {
-  background: transparent !important;
-}
-
-/* 2. Apply the "frosted glass" effect ONLY to the content cards and overlays, excluding the main layout card */
-body.theme-minority .v-card:not(.app-container-card),
-body.theme-minority .v-navigation-drawer,
-body.theme-minority .v-dialog,
-body.theme-minority .v-overlay__content {
-  border-color: rgba(255, 255, 255, 0.2) !important;
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(50px) !important;
-}
-
-/* 3. Keep the crucial fix for lists inside blurred components */
-body.theme-minority .v-list {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-}
-
-
-@keyframes waveGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes slowFadeGradient {
-  0% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 100% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
 }
 
 /* Other general styles */

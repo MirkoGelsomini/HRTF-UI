@@ -5,7 +5,7 @@ import { ref, computed } from 'vue';
 export const useThemeStore = defineStore('theme', () => {
   const vuetifyTheme = useTheme();
 
-  const currentThemeName = ref('originalLight');
+  const currentThemeName = ref('foundation');
   const backgroundStyle = ref('animated'); // New state for background style: 'none', 'static', 'animated'
 
   function setTheme(themeName) {
@@ -26,6 +26,8 @@ export const useThemeStore = defineStore('theme', () => {
       themeClass = 'theme-minority';
     } else if (currentThemeName.value === 'westworld') {
       themeClass = 'theme-westworld';
+    } else if (currentThemeName.value === 'foundation') {
+      themeClass = 'theme-foundation';
     }
 
     // Handle background style independently
@@ -38,8 +40,11 @@ export const useThemeStore = defineStore('theme', () => {
         themeClass += ' bg-animated-westworld';
       } else if (currentThemeName.value === 'originalDark') {
         themeClass += ' bg-animated-original-dark';
+      } else if (currentThemeName.value === 'originalLight') {
+        themeClass += ' bg-animated-original-light';
+      } else if (currentThemeName.value === 'foundation') {
+        themeClass += ' bg-animated-foundation';
       }
-      // originalLight by default has static, so no animated class for it here
     }
     // If backgroundStyle is 'static', no additional class is added here.
     // The default `body` background-color in main.css will provide the static color.
@@ -51,10 +56,10 @@ export const useThemeStore = defineStore('theme', () => {
     const savedTheme = localStorage.getItem('theme');
     const savedBackgroundStyle = localStorage.getItem('backgroundStyle');
 
-    if (savedTheme && ['originalLight', 'originalDark', 'minorityReport', 'westworld'].includes(savedTheme)) {
+    if (savedTheme && ['originalLight', 'originalDark', 'minorityReport', 'westworld', 'foundation'].includes(savedTheme)) {
       setTheme(savedTheme);
     } else {
-      setTheme('originalLight');
+      setTheme('foundation');
     }
 
     if (savedBackgroundStyle && ['none', 'static', 'animated'].includes(savedBackgroundStyle)) {

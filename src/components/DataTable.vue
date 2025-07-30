@@ -5,7 +5,7 @@ const headers = [
     key: 'title',
   },
   { title: 'Status', key: 'status' },
-  { title: 'Cration date', key: 'date' },
+  { title: 'Date', key: 'date' },
   { title: 'Actions', key: 'actions' },
 ]
 const items = [
