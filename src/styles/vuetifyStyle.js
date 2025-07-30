@@ -1,54 +1,5 @@
-export const dark = {
-  dark: true,
-  colors: {
-    //background: '#10121B',
-    surface: 'rgb(146, 151, 179)', // item bg color
-    //'surface-bright': '#FFFFFF',
-    //'surface-light': '#EEEEEE',
-    'border-color': 'rgb(113, 119, 144)', // item border color
-    'surface-variant': '#424242',
-    'on-surface-variant': '#EEEEEE',
-    primary: '#e37222aa',
-    'primary-darken-1': '#1F5592',
-    secondary: '#5eae91aa',
-    'secondary-darken-1': '#018786',
-    error: '#B00020',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FB8C00',
-    'on-background': '#FFFFFF',
-    'on-surface': '#FFFFFF', // item text color
-    'nav-background': '#10121B',
-    'theme-bg': '#10121B', // page bg color
-    'inactive':'rgb(113, 119, 144)', // color of header text
-    'btn-inactive': '#84858b', // button color
-    'content-title-color': '#999ba5',
-    'overlay-items': '#242832', // items over the page (no transparency)
-  },
-  variables: {
-    'border-opacity': 0.25, // item border opacity
-    'high-emphasis-opacity': 0.87,
-    'medium-emphasis-opacity': 0.60,
-    'disabled-opacity': 0.38,
-    'idle-opacity': 0.04,
-    'hover-opacity': 0.04,
-    'focus-opacity': 0.12,
-    'selected-opacity': 0.08,
-    'activated-opacity': 0.12,
-    'pressed-opacity': 0.12,
-    'dragged-opacity': 0.08,
-    'theme-kbd': '#212529',
-    'theme-on-kbd': '#FFFFFF',
-    'theme-code': '#F5F5F5',
-    'theme-on-code': '#000000',
-    'theme-bg-alpha': 0.8,  // page bg opacity
-    'inactive-alpha': 0.78, // inactive item opacity
-    'surface-alpha': 0.13, // item bg opacity
-    'btn-inactive-alpha': 0.55, // button opacity
-  }
-}
-
-export const light = {
+// --- Original Light Theme (Restored) ---
+export const originalLight = {
   dark: false,
   colors: {
     background: '#ffffff',
@@ -94,4 +45,134 @@ export const light = {
     'inactive-alpha': 1,
     'surface-alpha': 0.13,
   }
-}
+};
+
+// --- Original Dark Theme (Restored with Orange Buttons) ---
+export const originalDark = {
+  dark: true,
+  colors: {
+    surface: 'rgb(146, 151, 179)',
+    'border-color': 'rgb(113, 119, 144)',
+    'surface-variant': '#424242',
+    'on-surface-variant': '#EEEEEE',
+    primary: '#e37222aa', /* Restored orange button color */
+    'primary-darken-1': '#1F5592',
+    secondary: '#5eae91aa',
+    'secondary-darken-1': '#018786',
+    error: '#CF6679',
+    info: '#2196F3',
+    success: '#4CAF50',
+    warning: '#FB8C00',
+    'on-background': '#FFFFFF',
+    'on-surface': '#FFFFFF',
+    'nav-background': '#10121B',
+    'theme-bg': '#10121B',
+    'inactive':'rgb(113, 119, 144)',
+    'btn-inactive': '#84858b',
+    'content-title-color': '#999ba5',
+    'overlay-items': '#242832',
+  },
+  variables: {
+    'border-opacity': 0.25,
+    'high-emphasis-opacity': 0.87,
+    'medium-emphasis-opacity': 0.60,
+    'disabled-opacity': 0.38,
+    'idle-opacity': 0.04,
+    'hover-opacity': 0.04,
+    'focus-opacity': 0.12,
+    'selected-opacity': 0.08,
+    'activated-opacity': 0.12,
+    'pressed-opacity': 0.12,
+    'dragged-opacity': 0.08,
+    'theme-kbd': '#212529',
+    'theme-on-kbd': '#FFFFFF',
+    'theme-code': '#F5F5F5',
+    'theme-on-code': '#000000',
+    'theme-bg-alpha': 0.8,
+    'inactive-alpha': 0.78,
+    'surface-alpha': 0.13,
+    'btn-inactive-alpha': 0.55,
+  }
+};
+
+// --- Minority Report Theme (Corrected and Completed) ---
+export const minorityReport = {
+  dark: true,
+  colors: {
+    background: '#071A2D',
+    surface: 'rgba(7, 26, 45, 0.5)',
+    primary: '#00E5FF',
+    secondary: '#00E5FF',
+    'on-background': '#00FFFF',
+    'on-surface': '#00FFFF',
+    'surface-variant': '#0F3452',
+    'border-color': 'rgba(0, 229, 255, 0.3)',
+    'btn-inactive': '#0F3452',
+    'content-title-color': '#00E5FF',
+    error: '#FF5252',
+    info: '#2196F3',
+    success: '#4CAF50',
+    warning: '#FFC107',
+    'nav-background': '#071A2D',
+    'overlay-items': 'rgba(7, 26, 45, 0.7)',
+  },
+  variables: {
+    'border-opacity': 0.3,
+    'high-emphasis-opacity': 0.95,
+    'medium-emphasis-opacity': 0.7,
+    'disabled-opacity': 0.5,
+    'idle-opacity': 0.1,
+    'hover-opacity': 0.08,
+    'focus-opacity': 0.15,
+    'selected-opacity': 0.1,
+    'activated-opacity': 0.15,
+    'pressed-opacity': 0.2,
+    'dragged-opacity': 0.1,
+    'theme-bg-alpha': 1,
+    'inactive-alpha': 0.7,
+    'surface-alpha': 0.5,
+    'btn-inactive-alpha': 0.55,
+  },
+};
+
+// --- Westworld Theme ---
+export const westworld = {
+  dark: true,
+  colors: {
+    background: '#3D2C21',
+    surface: '#5A4539',
+    primary: '#A0522D',
+    'primary-darken-1': '#8B4513',
+    secondary: '#8FBC8F',
+    'secondary-darken-1': '#6B8E23',
+    error: '#B00020',
+    info: '#4682B4',
+    success: '#66CDAA',
+    warning: '#DAA520',
+    'on-background': '#F5F5DC',
+    'on-surface': '#D2B48C',
+    'nav-background': '#4E382C',
+    'border-color': '#8B4513',
+    'inactive': '#A9A9A9',
+    'btn-inactive': '#696969',
+    'content-title-color': '#D2B48C',
+    'overlay-items': '#4E382C',
+  },
+  variables: {
+    'border-opacity': 0.6,
+    'high-emphasis-opacity': 0.9,
+    'medium-emphasis-opacity': 0.7,
+    'disabled-opacity': 0.4,
+    'idle-opacity': 0.1,
+    'hover-opacity': 0.08,
+    'focus-opacity': 0.12,
+    'selected-opacity': 0.08,
+    'activated-opacity': 0.12,
+    'pressed-opacity': 0.15,
+    'dragged-opacity': 0.1,
+    'theme-bg-alpha': 1,
+    'inactive-alpha': 0.7,
+    'surface-alpha': 0.8,
+    'btn-inactive-alpha': 0.6,
+  },
+};

@@ -2,8 +2,7 @@
   border-radius: 14px !important;
   background-color: 
     rgba(var(--v-theme-surface), 
-    var(--v-surface-alpha)) 
-    !important;
+    var(--v-surface-alpha));
   font-size: 16px !important;
 }
 

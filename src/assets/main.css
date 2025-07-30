@@ -6,141 +6,143 @@ html {
   overflow-y: auto !important 
 }
 
-:root {
-  --theme-bg-color: rgba(16 18 27 / 80%);
-  --border-color: rgba(113 119 144 / 25%);
-  --theme-color: #f9fafb;
-  --inactive-color: rgb(113 119 144 / 78%);
-  --body-font: "Anta", sans-serif;
-  --hover-menu-bg: rgba(12 15 25 / 30%);
-  --content-title-color: #999ba5;
-  --content-bg: rgb(146 151 179 / 13%);
-  --button-inactive: rgb(249 250 251 / 55%);
-  --dropdown-bg: #21242d;
-  --dropdown-hover: rgb(42 46 60);
-  --popup-bg: rgb(22 25 37);
-  --search-bg: #14162b;
-  --overlay-bg: rgba(36, 39, 59, 0.3);
-  --scrollbar-bg: rgb(1 2 3 / 40%);
-  --primary-color: #e37222aa;
-  --secondary-color: #5eae91aa;
-}
-
-@font-face {
-  font-family: "Anta";
-  src: url('./fonts/Anta-Regular.ttf');
-}
-
-.light-mode {
-  --theme-bg-color: rgb(255 255 255 / 31%);
-  --theme-color: #3c3a3a;
-  --inactive-color: #333333;
-  --button-inactive: #3c3a3a;
-  --search-bg: rgb(255 255 255 / 31%);
-  --dropdown-bg: #f7f7f7;
-  --overlay-bg: rgb(255 255 255 / 30%);
-  --dropdown-hover: rgb(236 236 236);
-  --border-color: rgb(255 255 255 / 35%);
-  --popup-bg: rgb(255 255 255);
-  --hover-menu-bg: rgba(255 255 255 / 35%);
-  --scrollbar-bg: rgb(255 253 253 / 57%);
-  --content-title-color: --theme-color;
-}
-
 body {
-  background: linear-gradient(
-    -45deg, 
-    rgb(var(--v-theme-primary)),
-    rgb(var(--v-theme-secondary)),
-    rgb(var(--v-theme-primary)),  
-    rgb(var(--v-theme-secondary)));
-  background-size: 200% 200%;
-  animation: waveGradient 30s ease infinite;
   display: flex;
   flex-direction: column;
-  padding: 2em;
+  padding: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  color: white;
-  font-family: var(--body-font);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: var(--theme-color) !important;
+  font-family: "Anta", sans-serif;
+  color: rgb(var(--v-theme-on-surface));
+  background-color: rgb(var(--v-theme-background)); /* Default static background */
 }
 
-.app-container-card {
-  height: 90vh;
+/* --- No Background Style --- */
+body.bg-none {
+  background: none !important;
+  background-color: transparent !important;
 }
 
-.v-application {
-  background-color: rgba(var(--v-theme-theme-bg), var(--v-theme-bg-alpha)) !important;
-  border-radius: 14px;
-  height: 90vh !important;
-  width: 100%;
+/* --- Default Card Style --- */
+.v-card {
+  border-radius: 14px !important;
+  border: 1px solid rgb(var(--v-theme-border-color)); /* Default border */
 }
 
-@media (max-width: 1280px) {
-  body {
-    padding: 0px !important;
-  }
-  .v-application, .app-container-card {
-    height: 100vh !important;
-    border-radius: 0px !important;
-  }
-  .v-navigation-drawer {
-    backdrop-filter: blur(20px) !important;
-  }
+/* --- Animated Backgrounds --- */
+
+/* Minority Report Animated Background */
+body.bg-animated-minority {
+  background: linear-gradient(
+    -45deg,
+    rgb(var(--v-theme-background)),
+    rgb(var(--v-theme-surface-variant)),
+    rgb(var(--v-theme-background)),
+    rgb(var(--v-theme-surface-variant))
+  );
+  background-size: 400% 400%;
+  animation: waveGradient 60s ease infinite;
 }
 
-#app {
-  width: 100%;
+/* Westworld Animated Background */
+body.bg-animated-westworld {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--v-theme-background)),
+    rgb(var(--v-theme-surface)),
+    rgb(var(--v-theme-background))
+  );
+  background-size: 300% 300%;
+  animation: slowFadeGradient 90s ease infinite; /* New animation */
 }
 
-.v-toolbar {
-  background-color: var(--theme-bg-color) !important;
+/* Original Dark Animated Background */
+body.bg-animated-original-dark {
+  background: linear-gradient(
+    -45deg,
+    rgb(var(--v-theme-primary)), /* Original primary */
+    rgb(var(--v-theme-secondary)), /* Original secondary */
+    rgb(var(--v-theme-primary)),
+    rgb(var(--v-theme-secondary))
+  );
+  background-size: 200% 200%;
+  animation: waveGradient 30s ease infinite; /* Original speed */
+}
+
+/* --- Theme Specific Styles (excluding backgrounds) --- */
+body.theme-minority .v-application {
+  background-color: transparent !important;
+}
+
+/* Consolidated Minority Report Styles for Blur Effect */
+body.theme-minority .v-card,
+body.theme-minority .v-navigation-drawer,
+body.theme-minority .v-dialog,
+body.theme-minority .v-overlay__content {
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(50px);
+}
+
+/* Make v-list transparent inside minority theme and remove its own blur */
+body.theme-minority .v-list {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Westworld specific UI elements (e.g., no blur) */
+body.theme-westworld .v-card,
+body.theme-westworld .v-navigation-drawer,
+body.theme-westworld .v-dialog,
+body.theme-westworld .v-overlay__content {
+  backdrop-filter: none; /* No blur for Westworld */
+}
+
+body .bg-transparent,
+body.theme-minority .bg-transparent,
+body.theme-westworld .bg-transparent
+{  
+  background-color: transparent !important;
 }
 
 @keyframes waveGradient {
   0% {
-    background-size: 200% 200%;
-    background-position: 100% 0;
+    background-position: 0% 50%;
   }
   50% {
-    background-size: 200% 200%;
-    background-position: 0 100%;
+    background-position: 100% 50%;
   }
   100% {
-    background-size: 200% 200%;
-    background-position: 100% 0;
+    background-position: 0% 50%;
   }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-  border-radius: 10px;
+/* New keyframes for Westworld's slow fade */
+@keyframes slowFadeGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-bg);
-  border-radius: 10px;
-}
-
-.nav-header {
-  color: rgba(var(--v-theme-inactive), var(--v-inactive-alpha)) !important;
-}
-
-.content-title {
-  color: rgb(var(--v-theme-content-title-color)) !important;
-}
-
-.v-card {
-  border-radius: 14px !important;
-  background-color: rgba(var(--v-theme-surface), var(--v-surface-alpha)) !important;
+/* Other general styles */
+#app {
+  width: 100%;
 }
 
 .v-container {
-  padding: 2em !important;
+  padding: 0 !important;
 }

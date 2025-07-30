@@ -1,5 +1,53 @@
+/* Default button styles */
 .v-btn {
   font-family: 'Arial' !important;
   text-transform: none !important;
 }
 
+/* --- Minority Report Theme Button Styles --- */
+
+/* Neon effect for standard buttons, ONLY in Minority Report theme */
+.theme-minority .v-btn:not(.v-btn--icon) {
+  background-color: transparent !important;
+  color: rgb(var(--v-theme-primary)) !important;
+  border: 1px solid rgb(var(--v-theme-primary)) !important;
+  box-shadow: 0 0 5px rgba(var(--v-theme-primary), 0.7),
+              0 0 10px rgba(var(--v-theme-primary), 0.5),
+              0 0 15px rgba(var(--v-theme-primary), 0.3);
+  text-shadow: 0 0 5px rgba(var(--v-theme-primary), 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for standard buttons, ONLY in Minority Report theme */
+.theme-minority .v-btn:not(.v-btn--icon):hover {
+  box-shadow: 0 0 10px rgba(var(--v-theme-primary), 1),
+              0 0 20px rgba(var(--v-theme-primary), 0.7),
+              0 0 30px rgba(var(--v-theme-primary), 0.5);
+  transform: translateY(-2px);
+}
+
+/* Dimmed neon effect for disabled buttons, ONLY in Minority Report theme */
+.theme-minority .v-btn--disabled {
+  background-color: transparent !important;
+  color: rgba(var(--v-theme-primary), var(--v-theme-disabled-opacity)) !important;
+  border-color: rgba(var(--v-theme-primary), var(--v-theme-disabled-opacity)) !important;
+  box-shadow: 0 0 7px rgba(var(--v-theme-primary), calc(var(--v-theme-disabled-opacity) * 0.6));
+  text-shadow: 0 0 7px rgba(var(--v-theme-primary), calc(var(--v-theme-disabled-opacity) * 0.6));
+  transition: none;
+  transform: none;
+}
+
+
+/* --- Icon Button Styles (Theme Independent) --- */
+
+.v-btn--icon {
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-color: transparent !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+.v-btn--icon:hover {
+  background-color: rgba(var(--v-theme-primary), 0.1) !important;
+}

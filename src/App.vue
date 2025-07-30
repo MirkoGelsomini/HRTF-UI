@@ -1,40 +1,56 @@
 <script setup>
-import CustomAppBar from './components/appbar/CustomAppBar.vue'
-import CustomNavigationDrawer from './components/navigation/CustomNavigationDrawer.vue'
+import { useThemeStore } from './stores/theme';
+import CustomFooter from './components/footer/CustomFooter.vue';
+import CustomNavigationDrawer from './components/navigation/CustomNavigationDrawer.vue';
+import { onMounted, ref, watch, computed } from 'vue';
+import { useDisplay } from 'vuetify';
 
-import { useTheme } from 'vuetify'
+const themeStore = useThemeStore();
+const display = useDisplay();
+const isDrawerCollapsed = ref(true);
 
-const theme = useTheme()
+// Watch for changes in the themeCssClass and apply to document.body
+watch(
+  () => themeStore.themeCssClass,
+  (newClass) => {
+    document.body.className = newClass;
+  },
+  { immediate: true } // Apply immediately on component mount
+);
 
 onMounted(() => {
-  // retrieve saved theme from local storage
-  const storageTheme = localStorage.getItem('theme')
-  if (storageTheme) {
-    theme.global.name.value = storageTheme
-  }
-})
+  themeStore.initTheme();
+});
+
+const updateDrawerCollapsed = (collapsed) => {
+  isDrawerCollapsed.value = collapsed;
+};
+
+
 </script>
 
 <template>
   <v-app>
     <v-card class="app-container-card border-0 elevation-0" color="transparent">
-      <v-layout class="h-100">
-        <CustomAppBar />
-        <CustomNavigationDrawer />
-
-        <v-main :style="{ paddingTop: 64 + 'px' }">
-          <v-container fluid class="pa-10 h-100 w-100 overflow-y-auto custom-container">
+      <CustomNavigationDrawer @update:collapsed="updateDrawerCollapsed" />
+        
+      <v-layout class="h-100 custom-layout">
+        <v-main>
+          <v-container fluid class="pa-5 h-100 w-100 overflow-y-auto custom-container">
             <RouterView />
           </v-container>
         </v-main>
       </v-layout>
     </v-card>
+    <CustomFooter />
   </v-app>
 </template>
 
-
 <style scoped>
-.custom-container {
-  background-color: rgba(var(--v-theme-theme-bg), var(--v-theme-bg-alpha));
+/* Removed .custom-layout specific styles as they will now be handled by --v-layout-left */
+.custom-layout {
+  width: 94vw !important;
+  left: 4vw;
+
 }
 </style>
