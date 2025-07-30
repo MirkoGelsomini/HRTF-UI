@@ -1,1 +1,0 @@
-import{_ as o,c as s,a as n,b as a,w as r,r as c,o as l,d as _}from"./index-CMbIaJB1.js";const d={},u={class:"about"};function i(f,t){const e=c("v-btn");return l(),s("div",u,[t[1]||(t[1]=n("h1",null,"This is an about page",-1)),a(e,null,{default:r(()=>t[0]||(t[0]=[_(" Button ")])),_:1})])}const b=o(d,[["render",i]]);export{b as default};
