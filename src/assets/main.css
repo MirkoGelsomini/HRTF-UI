@@ -31,68 +31,9 @@ body.bg-none {
 }
 
 /* --- Animated Backgrounds --- */
+/* (animations are correct) */
 
-/* Minority Report Animated Background */
-body.bg-animated-minority {
-  background: linear-gradient(
-    -45deg,
-    rgb(var(--v-theme-background)),
-    rgb(var(--v-theme-surface-variant)),
-    rgb(var(--v-theme-background)),
-    rgb(var(--v-theme-surface-variant))
-  );
-  background-size: 400% 400%;
-  animation: waveGradient 60s ease infinite;
-}
-
-/* Westworld Animated Background */
-body.bg-animated-westworld {
-  background: linear-gradient(
-    135deg,
-    rgb(var(--v-theme-background)),
-    rgb(var(--v-theme-surface)),
-    rgb(var(--v-theme-background))
-  );
-  background-size: 300% 300%;
-  animation: slowFadeGradient 90s ease infinite; /* New animation */
-}
-
-/* Original Dark Animated Background */
-body.bg-animated-original-dark {
-  background: linear-gradient(
-    -45deg,
-    rgb(var(--v-theme-primary)), /* Original primary */
-    rgb(var(--v-theme-secondary)), /* Original secondary */
-    rgb(var(--v-theme-primary)),
-    rgb(var(--v-theme-secondary))
-  );
-  background-size: 200% 200%;
-  animation: waveGradient 30s ease infinite; /* Original speed */
-}
-
-/* --- Theme Specific Styles (excluding backgrounds) --- */
-body.theme-minority .v-application {
-  background-color: transparent !important;
-}
-
-/* Consolidated Minority Report Styles for Blur Effect */
-body.theme-minority .v-card,
-body.theme-minority .v-navigation-drawer,
-body.theme-minority .v-dialog,
-body.theme-minority .v-overlay__content {
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(50px);
-}
-
-/* Make v-list transparent inside minority theme and remove its own blur */
-body.theme-minority .v-list {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-}
-
-/* Westworld specific UI elements (e.g., no blur) */
+/* --- Westworld specific UI elements (e.g., no blur) --- */
 body.theme-westworld .v-card,
 body.theme-westworld .v-navigation-drawer,
 body.theme-westworld .v-dialog,
@@ -100,12 +41,32 @@ body.theme-westworld .v-overlay__content {
   backdrop-filter: none; /* No blur for Westworld */
 }
 
-body .bg-transparent,
-body.theme-minority .bg-transparent,
-body.theme-westworld .bg-transparent
-{  
-  background-color: transparent !important;
+
+/* --- Consolidated Minority Report Styles --- */
+
+/* 1. Make ALL main layout layers transparent to create a clear window to the animated body */
+body.theme-minority .v-application,
+body.theme-minority .v-main,
+body.theme-minority .app-container-card {
+  background: transparent !important;
 }
+
+/* 2. Apply the "frosted glass" effect ONLY to the content cards and overlays, excluding the main layout card */
+body.theme-minority .v-card:not(.app-container-card),
+body.theme-minority .v-navigation-drawer,
+body.theme-minority .v-dialog,
+body.theme-minority .v-overlay__content {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(50px) !important;
+}
+
+/* 3. Keep the crucial fix for lists inside blurred components */
+body.theme-minority .v-list {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
 
 @keyframes waveGradient {
   0% {
@@ -119,7 +80,6 @@ body.theme-westworld .bg-transparent
   }
 }
 
-/* New keyframes for Westworld's slow fade */
 @keyframes slowFadeGradient {
   0% {
     background-position: 0% 0%;

@@ -2,7 +2,7 @@
 import { useThemeStore } from './stores/theme';
 import CustomFooter from './components/footer/CustomFooter.vue';
 import CustomNavigationDrawer from './components/navigation/CustomNavigationDrawer.vue';
-import { onMounted, ref, watch, computed } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useDisplay } from 'vuetify';
 
 const themeStore = useThemeStore();
@@ -26,7 +26,6 @@ const updateDrawerCollapsed = (collapsed) => {
   isDrawerCollapsed.value = collapsed;
 };
 
-
 </script>
 
 <template>
@@ -49,8 +48,7 @@ const updateDrawerCollapsed = (collapsed) => {
 <style scoped>
 /* Removed .custom-layout specific styles as they will now be handled by --v-layout-left */
 .custom-layout {
-  width: 94vw !important;
-  left: 4vw;
-
+  width: 95vw !important;
+  left: 4.5vw;
 }
 </style>

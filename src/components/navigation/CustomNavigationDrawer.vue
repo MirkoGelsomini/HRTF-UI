@@ -113,29 +113,31 @@ const isOverlayActive = computed(() => {
 
 <style scoped>
 .custom-drawer {
-  border-right: 1px solid rgba(113, 119, 144, 0.25);
-  transition: width 0.3s ease, transform 0.3s ease; /* Add transform for smooth overlay transition */
-  height: 90vh !important;
+  height: 88vh !important;
   top: 2.5vh !important;
-  border-top-right-radius: 50px;
-  border-bottom: 0px;
+  left: 1vw !important;
+  border-radius: 50px !important;
+
+  border-right: 1px solid rgba(113, 119, 144, 0.25);
+  transition: width 0.3s ease, transform 0.3s ease;
 }
 
 /* --- Overlay Styles for Expanded Drawer --- */
 .custom-drawer.is-expanded-overlay {
-  position: absolute !important; /* Forces it out of flow */
+  position: absolute !important;
   left: 0;
-  z-index: 1000; /* Ensure it's above other content */
-  height: 100vh; /* Full viewport height */
-  width: 256px; /* Explicitly set full width for expanded state */
+  z-index: 1000;
+  height: 100vh;
+  width: 256px;
   
   /* Solid background for original themes */
   background-color: rgb(var(--v-theme-surface));
 }
 
-/* Ensure Minority Report theme keeps its blur effect */
+/* Consolidated Minority Report Styles for Expanded Drawer */
 .theme-minority .custom-drawer.is-expanded-overlay {
-  background-color: transparent;
-  backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px);
 }
 </style>
