@@ -13,8 +13,6 @@ const display = useDisplay()
 const navigationStore = useNavigationStore()
 const { drawer, navigationItems } = storeToRefs(navigationStore)
 
-const itemType = (item) => (item.header ? 'NavHeader' : 'NavLink')
-
 const isCollapsed = ref(false)
 let collapseTimer = null
 const collapseDelay = 3000

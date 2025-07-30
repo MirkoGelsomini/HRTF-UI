@@ -3,10 +3,8 @@ import { useThemeStore } from './stores/theme';
 import CustomFooter from './components/footer/CustomFooter.vue';
 import CustomNavigationDrawer from './components/navigation/CustomNavigationDrawer.vue';
 import { onMounted, ref, watch } from 'vue';
-import { useDisplay } from 'vuetify';
 
 const themeStore = useThemeStore();
-const display = useDisplay();
 const isDrawerCollapsed = ref(true);
 
 // Watch for changes in the themeCssClass and apply to document.body
