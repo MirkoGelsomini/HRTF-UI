@@ -1,4 +1,7 @@
 <script setup>
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+
 const router = useRouter()
 
 const props = defineProps({
@@ -20,7 +23,7 @@ const isActive = computed(() => {
 })
 </script>
 <template>
-  <v-list-item 
+  <v-list-item
     :class="{
       'custom-prepend': true,
       'v-list-item--active': isActive
