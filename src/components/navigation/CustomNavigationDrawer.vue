@@ -136,6 +136,6 @@ const isOverlayActive = computed(() => {
 .custom-drawer.is-expanded-overlay {
   border-color: rgba(255, 255, 255, 0.2) !important;
   background-color: rgba(255, 255, 255, 0.08) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(40px);
 }
 </style>

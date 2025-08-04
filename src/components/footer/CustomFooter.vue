@@ -56,6 +56,9 @@ const navigateToHome = () => {
         <v-list-item @click="themeStore.setTheme('foundation')">
           <v-list-item-title>Foundation</v-list-item-title>
         </v-list-item>
+        <v-list-item @click="themeStore.setTheme('foundationGold')">
+          <v-list-item-title>Foundation Gold</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
 
@@ -113,7 +116,7 @@ const navigateToHome = () => {
   border-left: 1px solid rgba(113 119 144 / 25%);  
   border-right: 1px solid rgba(113 119 144 / 25%);
   border-top-left-radius: 50px !important;
-  border-top-right-radius: 50px !import;
+  border-top-right-radius: 50px !important;
   padding-top: 15px;
   width: 98vw;
   left: 1vw;

@@ -28,12 +28,15 @@ export const useThemeStore = defineStore('theme', () => {
       themeClass = 'theme-westworld';
     } else if (currentThemeName.value === 'foundation') {
       themeClass = 'theme-foundation';
+    } else if (currentThemeName.value === 'foundationGold') {
+      themeClass = 'theme-foundation-gold';
     }
 
     // Handle background style independently
     if (backgroundStyle.value === 'none') {
       themeClass += ' bg-none'; // Add new class to remove background
-    } else if (backgroundStyle.value === 'animated') {
+    }
+    else if (backgroundStyle.value === 'animated') {
       if (currentThemeName.value === 'minorityReport') {
         themeClass += ' bg-animated-minority';
       } else if (currentThemeName.value === 'westworld') {
@@ -44,6 +47,8 @@ export const useThemeStore = defineStore('theme', () => {
         themeClass += ' bg-animated-original-light';
       } else if (currentThemeName.value === 'foundation') {
         themeClass += ' bg-animated-foundation';
+      } else if (currentThemeName.value === 'foundationGold') {
+        themeClass += ' bg-animated-foundation-gold';
       }
     }
     // If backgroundStyle is 'static', no additional class is added here.
@@ -56,7 +61,7 @@ export const useThemeStore = defineStore('theme', () => {
     const savedTheme = localStorage.getItem('theme');
     const savedBackgroundStyle = localStorage.getItem('backgroundStyle');
 
-    if (savedTheme && ['originalLight', 'originalDark', 'minorityReport', 'westworld', 'foundation'].includes(savedTheme)) {
+    if (savedTheme && ['originalLight', 'originalDark', 'minorityReport', 'westworld', 'foundation', 'foundationGold'].includes(savedTheme)) {
       setTheme(savedTheme);
     } else {
       setTheme('foundation');
